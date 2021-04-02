@@ -7,13 +7,27 @@ import {
   UserAvatar,
   IconsContainer,
 } from '../styles/SidebarElements'
-import { IconButton } from '@material-ui/core'
 
+import { IconButton } from '@material-ui/core'
 import ChatIcon from '@material-ui/icons/Chat'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import SearchIcon from '@material-ui/icons/Search'
 
+import * as EmailValidator from 'email-validator'
+
 const Sidebar = () => {
+  const handleCreateChat = () => {
+    const input = prompt(
+      'Mit wem willst du chatten? Gebe eine E-Mail-Adresse an:'
+    )
+
+    if (!input) return null
+
+    if (EmailValidator.validate(input)) {
+      // todo need to add the chat into the db "chats" collection
+    }
+  }
+
   return (
     <Container>
       <Header>
@@ -31,7 +45,9 @@ const Sidebar = () => {
         <SearchIcon />
         <SearchInput placeholder='In Nachrichten suchen' />
       </Search>
-      <SidebarButton>Starte neuen Chat</SidebarButton>
+      <SidebarButton onClick={handleCreateChat}>
+        Starte neuen Chat
+      </SidebarButton>
     </Container>
   )
 }
