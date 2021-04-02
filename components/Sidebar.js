@@ -19,12 +19,14 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { useCollection } from 'react-firebase-hooks/firestore'
 import { auth, db } from '../backend/firebase'
 
+import Chat from './Chat'
+
 const Sidebar = () => {
   const [user] = useAuthState(auth)
   const userChatRef = db
     .collection('chats')
     .where('users', 'array-contains', user.email)
-  const [chatSnapshot] = useCollection(userChatRef)
+  const [chatsSnapshot] = useCollection(userChatRef)
 
   const handleCreateChat = () => {
     const input = prompt(
@@ -47,7 +49,7 @@ const Sidebar = () => {
   }
 
   const validateChatAlreadyExist = recipientEmail =>
-    !!chatSnapshort?.docs.find(
+    !!chatsSnapshot?.docs.find(
       chat =>
         chat.data().users.find(user => user === recipientEmail)?.length > 0
     )
@@ -65,13 +67,19 @@ const Sidebar = () => {
           </IconButton>
         </IconsContainer>
       </Header>
+
       <Search>
         <SearchIcon />
         <SearchInput placeholder='In Nachrichten suchen' />
       </Search>
+
       <SidebarButton onClick={handleCreateChat}>
         Starte neuen Chat
       </SidebarButton>
+
+      {chatsSnapshot?.docs.map(chat => (
+        <Chat key={chat.id} id={chat.id} users={chat.data().users} />
+      ))}
     </Container>
   )
 }
