@@ -1,12 +1,12 @@
 import firebase from 'firebase'
 
 const firebaseConfig = {
-  apiKey: process.env.firebaseApiKey,
-  authDomain: process.env.authDomain,
-  projectId: process.env.projectId,
-  storageBucket: process.env.storageBucket,
-  messagingSenderId: process.env.messagingSenderId,
-  appId: process.env.firebaseAppId,
+  apiKey: 'AIzaSyByY7rsbL1E8ZCCaykWx4eiDg1vi3Q9sDM',
+  authDomain: 'next-chatapp-bdc13.firebaseapp.com',
+  projectId: 'next-chatapp-bdc13',
+  storageBucket: 'next-chatapp-bdc13.appspot.com',
+  messagingSenderId: '580067194886',
+  appId: '1:580067194886:web:fb2ba6d9364c0cfcf76b87',
 }
 
 // check we have already init
