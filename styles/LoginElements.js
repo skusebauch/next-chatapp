@@ -11,7 +11,7 @@ export const Container = styled.div`
 export const LoginContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 10rem;
+  padding: 4rem;
   align-items: center;
   background-color: white;
   border-radius: 5px;
