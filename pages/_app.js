@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 import '../styles/globals.css'
 
 import { useAuthState } from 'react-firebase-hooks/auth'
