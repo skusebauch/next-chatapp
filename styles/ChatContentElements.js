@@ -30,7 +30,7 @@ export const HeaderIcons = styled.div``
 export const MessageContainer = styled.div`
   padding: 30px;
   background-color: #e5ded8;
-  min-height: calc(100vh - 80px - 75px);
+  min-height: calc(90vh - 80px - 75px);
 `
 export const EndOfMessage = styled.div`
   margin-bottom: 50px;
