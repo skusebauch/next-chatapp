@@ -30,23 +30,21 @@ export const HeaderIcons = styled.div``
 export const MessageContainer = styled.div`
   padding: 30px;
   background-color: #e5ded8;
+  overflow: scroll;
   min-height: calc(100vh - 80px - 75px);
-  @media only screen and (max-width: 750px) {
-    height: 80vh;
-    min-height: unset;
-  }
 `
 export const EndOfMessage = styled.div`
-  margin-bottom: 50px;
+  margin-bottom: 75px;
 `
 export const InputContainer = styled.form`
   display: flex;
   align-items: center;
   padding: 10px;
-  position: sticky;
+  position: fixed;
+  width: 100%;
   bottom: 0;
   background-color: white;
-  z-index: 5;
+  z-index: 10;
 `
 export const Input = styled.input`
   flex: 1;
