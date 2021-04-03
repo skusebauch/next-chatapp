@@ -1,12 +1,24 @@
 import styled from 'styled-components'
 import { Avatar, Button } from '@material-ui/core'
 
-export const Container = styled.div``
+export const Container = styled.div`
+  flex: 0.45;
+  border-right: 1px solid whitesmoke;
+  height: 100vh;
+  min-width: 300px;
+  max-width: 350px;
+  overflow-y: scroll;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+`
 
 export const Search = styled.div`
   display: flex;
   align-items: center;
-  padding: 2rem;
+  padding: 20px;
   border-radius: 2px;
 `
 
@@ -33,8 +45,8 @@ export const Header = styled.div`
   z-index: 1;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem;
-  height: 8rem;
+  padding: 15px;
+  height: 80px;
   border-bottom: 1px solid whitesmoke;
 `
 

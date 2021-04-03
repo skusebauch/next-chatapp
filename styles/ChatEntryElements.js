@@ -4,7 +4,7 @@ import { Avatar } from '@material-ui/core'
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  padding: 1.5rem;
+  padding: 15px;
   word-break: break-word;
   :hover {
     background-color: #e0eaeb;
@@ -12,5 +12,5 @@ export const Container = styled.div`
 `
 
 export const UserAvatar = styled(Avatar)`
-  margin: 0.5rem 1.5rem 0.5rem 0.5rem;
+  margin: 5px 15px 5px 5px;
 `

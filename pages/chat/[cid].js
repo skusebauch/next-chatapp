@@ -1,4 +1,3 @@
-import React from 'react'
 import { auth, db } from '../../backend/firebase'
 
 import { Container, ChatContainer } from '../../styles/ChatElements'
@@ -10,7 +9,6 @@ import Head from 'next/head'
 
 import { useAuthState } from 'react-firebase-hooks/auth'
 import getRecipientEmail from '../../utils/getRecipientEmail'
-import { LocalConvenienceStoreOutlined } from '@material-ui/icons'
 
 function Chat({ chat, messages }) {
   const [user] = useAuthState(auth)
