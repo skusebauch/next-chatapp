@@ -1,23 +1,27 @@
-import { Container, UserAvatar } from '../styles/ChatElements'
+import { useRouter } from 'next/router'
+
+import { Container, UserAvatar } from '../styles/ChatEntryElements'
 import getRecipientEmail from '../utils/getRecipientEmail'
 
 import { auth, db } from '../backend/firebase'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useCollection } from 'react-firebase-hooks/firestore'
 
-const Chat = ({ id, users }) => {
+const ChatEntry = ({ id, users }) => {
   const [user] = useAuthState(auth)
   const [recipientSnapshot] = useCollection(
     db.collection('users').where('email', '==', getRecipientEmail(users, user))
   )
-  console.log('recipientSnapshot', recipientSnapshot)
+
+  const router = useRouter()
+
+  const handleEnterChat = () => router.push(`/chat/${id}`)
 
   const recipient = recipientSnapshot?.docs?.[0]?.data()
-  console.log('recipient', recipient)
   const recipientEmail = getRecipientEmail(users, user)
 
   return (
-    <Container>
+    <Container onClick={handleEnterChat}>
       {recipient ? (
         <UserAvatar src={recipient?.photoURL} />
       ) : (
@@ -28,4 +32,4 @@ const Chat = ({ id, users }) => {
   )
 }
 
-export default Chat
+export default ChatEntry

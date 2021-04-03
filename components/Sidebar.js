@@ -19,7 +19,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { useCollection } from 'react-firebase-hooks/firestore'
 import { auth, db } from '../backend/firebase'
 
-import Chat from './Chat'
+import ChatEntry from './ChatEntry'
 
 const Sidebar = () => {
   const [user] = useAuthState(auth)
@@ -78,7 +78,7 @@ const Sidebar = () => {
       </SidebarButton>
 
       {chatsSnapshot?.docs.map(chat => (
-        <Chat key={chat.id} id={chat.id} users={chat.data().users} />
+        <ChatEntry key={chat.id} id={chat.id} users={chat.data().users} />
       ))}
     </Container>
   )
