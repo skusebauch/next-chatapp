@@ -34,7 +34,7 @@ export const MessageContainer = styled.div`
   min-height: calc(100vh - 80px - 75px);
 `
 export const EndOfMessage = styled.div`
-  margin-bottom: 75px;
+  margin-bottom: 150px;
 `
 export const InputContainer = styled.form`
   display: flex;
