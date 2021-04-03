@@ -9,6 +9,7 @@ import {
   EndOfMessage,
   InputContainer,
   Input,
+  BeginningOfMessage,
 } from '../styles/ChatContentElements'
 
 import Message from '../components/Message'
@@ -133,6 +134,7 @@ const ChatContent = ({ chat, messages }) => {
       </Header>
 
       <MessageContainer>
+        <BeginningOfMessage></BeginningOfMessage>
         {showMessages()}
         <EndOfMessage ref={endOfMessagesRef}></EndOfMessage>
       </MessageContainer>

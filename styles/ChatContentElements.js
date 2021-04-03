@@ -34,6 +34,9 @@ export const MessageContainer = styled.div`
   overflow: scroll;
   min-height: calc(100vh - 80px - 75px);
 `
+export const BeginningOfMessage = styled.div`
+  margin-top: 75px;
+`
 export const EndOfMessage = styled.div`
   margin-bottom: 150px;
 `
