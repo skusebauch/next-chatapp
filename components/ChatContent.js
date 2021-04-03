@@ -71,7 +71,7 @@ const ChatContent = ({ chat, messages }) => {
     }
   }
 
-  const ScrollToBottom = () => {
+  const scrollToBottom = () => {
     endOfMessagesRef.current.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
@@ -97,7 +97,7 @@ const ChatContent = ({ chat, messages }) => {
 
     setInput('')
 
-    ScrollToBottom()
+    scrollToBottom()
   }
 
   const recipient = recipientSnapshot?.docs?.[0]?.data()

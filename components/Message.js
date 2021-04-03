@@ -3,7 +3,6 @@ import { auth } from '../backend/firebase'
 
 import {
   Container,
-  MessageElement,
   Sender,
   Reciever,
   Timestamp,
@@ -14,6 +13,7 @@ import moment from 'moment'
 function Message({ user, message }) {
   const [userLoggedIn] = useAuthState(auth)
 
+  // set styleComponents to either sender or receiver - check MessageElements.js
   const TypeOfMessage = user === userLoggedIn.email ? Sender : Reciever
 
   return (
@@ -21,7 +21,9 @@ function Message({ user, message }) {
       <TypeOfMessage>
         {message.message}
         <Timestamp>
-          {message.timestamp ? moment(message.timestamp).format('LT') : '...'}
+          {message.timestamp
+            ? moment(message.timestamp).locale('de').format('LT')
+            : '...'}
         </Timestamp>
       </TypeOfMessage>
     </Container>
