@@ -3,6 +3,7 @@ import { auth, db } from '../../backend/firebase'
 import { Container, ChatContainer } from '../../styles/ChatElements'
 
 import Sidebar from '../../components/Sidebar'
+
 import ChatContent from '../../components/ChatContent'
 
 import Head from 'next/head'

@@ -21,7 +21,7 @@ export const HeaderInfo = styled.div`
     margin-bottom: 3px;
   }
   > p {
-    font-size: 14px;
+    font-size: 12px;
     color: gray;
   }
 `

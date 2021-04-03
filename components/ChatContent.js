@@ -23,10 +23,9 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { useCollection } from 'react-firebase-hooks/firestore'
 
 import { Avatar, IconButton } from '@material-ui/core'
-import AttachFileIcon from '@material-ui/icons/AttachFile'
-import MoreVertIcon from '@material-ui/icons/MoreVert'
-import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
-import MicIcon from '@material-ui/icons/Mic'
+
+import SendIcon from '@material-ui/icons/Send'
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
 
 import TimeAgo from 'timeago-react'
 
@@ -81,6 +80,8 @@ const ChatContent = ({ chat, messages }) => {
   const handleSendMessage = e => {
     e.preventDefault()
 
+    if (!input) return null
+
     db.collection('users').doc(user.uid).set(
       {
         lastSeen: firebase.firestore.FieldValue.serverTimestamp(),
@@ -106,6 +107,8 @@ const ChatContent = ({ chat, messages }) => {
   return (
     <Container>
       <Header>
+        <ArrowBackIosIcon color='primary' onClick={() => router.push('/')} />
+
         {recipient ? (
           <Avatar src={recipient?.photoURL} />
         ) : (
@@ -113,9 +116,9 @@ const ChatContent = ({ chat, messages }) => {
         )}
 
         <HeaderInfo>
-          <h3>{recipientEmail}</h3>
+          <h4 style={{ marginBottom: 0 }}>{recipientEmail}</h4>
           {recipientSnapshot ? (
-            <p>
+            <p style={{ marginTop: 0 }}>
               Zuletzt aktiv:{` `}
               {recipient?.lastSeen?.toDate() ? (
                 <TimeAgo datetime={recipient?.lastSeen?.toDate()} />
@@ -127,14 +130,6 @@ const ChatContent = ({ chat, messages }) => {
             <p>Lade zuletzt aktiv...</p>
           )}
         </HeaderInfo>
-        <HeaderIcons>
-          <IconButton>
-            <AttachFileIcon />
-          </IconButton>
-          <IconButton>
-            <MoreVertIcon />
-          </IconButton>
-        </HeaderIcons>
       </Header>
 
       <MessageContainer>
@@ -143,7 +138,6 @@ const ChatContent = ({ chat, messages }) => {
       </MessageContainer>
 
       <InputContainer>
-        <InsertEmoticonIcon />
         <Input
           value={input}
           onChange={e => setInput(e.target.value)}
@@ -158,7 +152,8 @@ const ChatContent = ({ chat, messages }) => {
         >
           Senden
         </button>
-        <MicIcon />
+
+        <SendIcon color='primary' onClick={handleSendMessage} />
       </InputContainer>
     </Container>
   )

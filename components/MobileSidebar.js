@@ -1,5 +1,5 @@
 import {
-  Container,
+  MobileContainer,
   Search,
   SearchInput,
   SidebarButton,
@@ -55,7 +55,7 @@ const Sidebar = () => {
     )
 
   return (
-    <Container>
+    <MobileContainer>
       <Header>
         <div
           style={{
@@ -91,7 +91,7 @@ const Sidebar = () => {
       {chatsSnapshot?.docs.map(chat => (
         <ChatEntry key={chat.id} id={chat.id} users={chat.data().users} />
       ))}
-    </Container>
+    </MobileContainer>
   )
 }
 

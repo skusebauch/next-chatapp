@@ -2,11 +2,29 @@ import styled from 'styled-components'
 import { Avatar, Button } from '@material-ui/core'
 
 export const Container = styled.div`
+  @media only screen and (max-width: 750px) {
+    display: none;
+  }
   flex: 0.45;
   border-right: 1px solid whitesmoke;
   height: 100vh;
   min-width: 300px;
   max-width: 350px;
+  overflow-y: scroll;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+`
+export const MobileContainer = styled.div`
+  @media only screen and (min-width: 750px) {
+    display: none;
+  }
+  flex: 1;
+  border-right: 1px solid whitesmoke;
+  height: 100vh;
+  min-width: 300px;
   overflow-y: scroll;
   ::-webkit-scrollbar {
     display: none;
