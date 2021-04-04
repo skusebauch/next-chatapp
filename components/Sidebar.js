@@ -31,7 +31,7 @@ const Sidebar = () => {
   const handleCreateChat = () => {
     const input = prompt(
       'Mit wem willst du chatten? Gebe eine E-Mail-Adresse an:'
-    )
+    ).toLowerCase()
 
     if (!input) return null
 
@@ -45,6 +45,8 @@ const Sidebar = () => {
         // collection is alway an users array with [0.loggedin user, 1.recipientEmail]
         users: [user.email, input],
       })
+    } else {
+      window.alert('Bitte überprüfe deine eingegebene E-Mail')
     }
   }
 

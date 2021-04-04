@@ -1,15 +1,12 @@
 import { useState, useRef } from 'react'
 
 import {
-  Container,
   Header,
   HeaderInfo,
-  HeaderIcons,
   MessageContainer,
   EndOfMessage,
   InputContainer,
   Input,
-  BeginningOfMessage,
 } from '../styles/ChatContentElements'
 
 import Message from '../components/Message'
@@ -106,7 +103,7 @@ const ChatContent = ({ chat, messages }) => {
   const recipientEmail = getRecipientEmail(chat.users, user)
 
   return (
-    <Container>
+    <>
       <Header>
         <ArrowBackIosIcon color='primary' onClick={() => router.push('/')} />
 
@@ -134,7 +131,6 @@ const ChatContent = ({ chat, messages }) => {
       </Header>
 
       <MessageContainer>
-        <BeginningOfMessage></BeginningOfMessage>
         {showMessages()}
         <EndOfMessage ref={endOfMessagesRef}></EndOfMessage>
       </MessageContainer>
@@ -157,7 +153,7 @@ const ChatContent = ({ chat, messages }) => {
 
         <SendIcon color='primary' onClick={handleSendMessage} />
       </InputContainer>
-    </Container>
+    </>
   )
 }
 

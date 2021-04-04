@@ -1,9 +1,7 @@
 import styled from 'styled-components'
 
-export const Container = styled.div``
-
 export const Header = styled.div`
-  position: fixed;
+  position: sticky;
   width: 100%;
   top: 0;
   background-color: white;
@@ -32,19 +30,19 @@ export const MessageContainer = styled.div`
   padding: 30px;
   background-color: #e5ded8;
   overflow: scroll;
-  min-height: calc(100vh - 80px - 75px);
+  min-height: calc(100vh - 80px - 78px);
 `
 export const BeginningOfMessage = styled.div`
   margin-top: 75px;
 `
 export const EndOfMessage = styled.div`
-  margin-bottom: 150px;
+  margin-bottom: 50px;
 `
 export const InputContainer = styled.form`
   display: flex;
   align-items: center;
   padding: 10px;
-  position: fixed;
+  position: sticky;
   width: 100%;
   bottom: 0;
   background-color: white;
