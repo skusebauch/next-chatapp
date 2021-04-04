@@ -26,11 +26,12 @@ export const HeaderInfo = styled.div`
 `
 
 export const HeaderIcons = styled.div``
+
 export const MessageContainer = styled.div`
   padding: 30px;
   background-color: #e5ded8;
   overflow: scroll;
-  min-height: calc(
+  height: calc(
     ${typeof window !== 'undefined' ? window.innerHeight * 0.01 * 100 : null}px -
       80px - 78px
   );
