@@ -31,7 +31,7 @@ const Sidebar = () => {
   const handleCreateChat = () => {
     const input = prompt(
       'Mit wem willst du chatten? Gebe eine E-Mail-Adresse an:'
-    )
+    )?.toLowerCase()
 
     if (!input) return null
 
